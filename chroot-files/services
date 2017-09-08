@@ -1,0 +1,8 @@
+# List of all systemd services to enable
+# Comments begin with #
+
+NetworkManager
+firewalld
+lightdm
+fstrim.timer
+docker
