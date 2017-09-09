@@ -33,9 +33,6 @@ check-var "$USERNAME" "Username";
 echo "Setting up timezone.";
 ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime;
 
-echo "Turning on NTP time syncing.";
-timedatectl set-ntp true;
-
 echo "Setting up locale.";
 LOCALE_STRING="en_US.UTF-8 UTF-8";
 sed -i"" "s/#$LOCALE_STRING/$LOCALE_STRING/g" /etc/locale.gen;
