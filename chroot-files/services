@@ -6,3 +6,4 @@ firewalld
 lightdm
 fstrim.timer
 docker
+systemd-timesyncd
