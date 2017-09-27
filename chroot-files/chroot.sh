@@ -61,6 +61,8 @@ grub-mkconfig -o /boot/grub/grub.cfg;
 echo "Enabling Systemd Services.";
 systemctl enable $(cat /chroot-files/services | grep -v '^#');
 
-# Run VMWare setup. Remove this after I move to a real system.
-echo "Performing VMWare setup."
-/chroot-files/vmware.sh
+read -p "Perform additional VMWare setup? (y/n): " CONFIRM;
+if [ "$CONFIRM" == "y" ]; then
+    echo "Performing VMWare setup.";
+    /chroot-files/vmware.sh;
+fi;
