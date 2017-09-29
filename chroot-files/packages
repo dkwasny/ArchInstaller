@@ -42,3 +42,7 @@ docker
 docker-compose
 ansible
 valgrind
+libvirt
+virt-manager
+qemu
+dnsmasq

@@ -7,3 +7,4 @@ lightdm
 fstrim.timer
 docker
 systemd-timesyncd
+libvirtd
