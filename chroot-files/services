@@ -1,10 +1,17 @@
 # List of all systemd services to enable
 # Comments begin with #
 
-NetworkManager
-firewalld
-lightdm
+# System Services
 fstrim.timer
-docker
 systemd-timesyncd
-libvirtd
+
+# Networking Services
+#NetworkManager
+#firewalld
+
+# Desktop Services
+lightdm
+
+# User Services
+#docker
+#libvirtd
