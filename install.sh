@@ -110,7 +110,7 @@ mkdir "$BOOT_MOUNT";
 mount "$BOOT_PARTITION" "$BOOT_MOUNT";
 
 echo "Performing base install (pacstrap).";
-pacstrap "$ROOT_MOUNT" base base-devel;
+pacstrap "$ROOT_MOUNT" base linux linux-firmware;
 
 echo "Generating fstab.";
 genfstab -U "$ROOT_MOUNT" >> "$ROOT_MOUNT/etc/fstab";
