@@ -60,7 +60,7 @@ echo "This will clear everything on the device.";
 confirm "Are you sure (y/n): ";
 
 # The actual installation starts here.  Fail when any following step fails.
-set -e;
+set -ex;
 
 # Turn off all swap devices on the off chance the device has a mounted
 # swap partition.
