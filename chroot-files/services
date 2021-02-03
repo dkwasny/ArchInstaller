@@ -5,9 +5,9 @@
 fstrim.timer
 systemd-timesyncd
 
-# Networking Services
-#NetworkManager
-#firewalld
+# Networking
+systemd-networkd
+systemd-resolved
 
 # Desktop Services
 lightdm
