@@ -7,6 +7,7 @@ efibootmgr
 #networkmanager
 #firewalld
 openssh
+sudo
 
 # Microcode
 # Uncomment based on your CPU (or none if using a VM)
