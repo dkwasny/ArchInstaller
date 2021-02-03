@@ -6,6 +6,6 @@ The script assumes an EFI bios is used.
 1. Boot up an Arch live ISO.
 2. Retrieve this repo via http (wget, curl, etc).
 
-		wget https://www.github.com/dkwasny/ArchInstaller/archive/master.tar.gz
+		curl -o installer.tar.gz https://codeload.github.com/dkwasny/ArchInstaller/tar.gz/master
 
 3. Run install.sh.
