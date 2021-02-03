@@ -3,7 +3,7 @@
 # Perform a simple Arch installation per the wiki guide.
 
 function usage() {
-    echo "Usage: $0 -d <device> -n <hostname> -u <username>";
+    echo "Usage: $0 -d <device> -t <hostname> -u <username>";
     exit 0;
 }
 
