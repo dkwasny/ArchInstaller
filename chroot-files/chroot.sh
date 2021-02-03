@@ -4,7 +4,7 @@
 # to the new root filesystem.
 
 # Fail on any command error
-set -e;
+set -ex;
 
 function usage() {
     echo "Usage: $0 -n <hostname> -u <username>";
