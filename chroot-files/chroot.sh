@@ -7,7 +7,7 @@
 set -ex;
 
 function usage() {
-    echo "Usage: $0 -n <hostname> -u <username>";
+    echo "Usage: $0 -n <hostname> -u <username> -d <network-device>";
     exit 0;
 }
 
@@ -18,10 +18,11 @@ function check-var() {
     fi;
 }
 
-while getopts "n:u:h" ARG; do
+while getopts "n:u:d:h" ARG; do
     case "$ARG" in
         n) HOSTNAME="$OPTARG";;
         u) USERNAME="$OPTARG";;
+        d) NETWORK_DEVICE="$OPTARG";;
         h) usage;;
         *) usage;;
     esac;
@@ -29,6 +30,7 @@ done;
 
 check-var "$HOSTNAME" "Hostname";
 check-var "$USERNAME" "Username";
+check-var "$NETWORK_DEVICE" "NetworkDevice";
 
 echo "Setting up timezone.";
 ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime;
@@ -45,6 +47,10 @@ echo "$HOSTNAME" > /etc/hostname;
 echo "Creating hosts file";
 mv /chroot-files/hosts /etc/hosts;
 sed -i"" "s/HOSTNAME/$HOSTNAME/g" /etc/hosts;
+
+echo "Setting up network config file";
+mv /chroot-files/20-wired.network /etc/systemd/network/20-wired.network;
+sed -i"" "s/NETWORK_DEVICE/$NETWORK_DEVICE/g" /etc/systemd/network/20-wired.network;
 
 echo "Setting root's password.";
 echo "root:password" | chpasswd;
