@@ -36,9 +36,14 @@ ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime;
 echo "Setting up locale.";
 LOCALE_STRING="en_US.UTF-8 UTF-8";
 sed -i"" "s/#$LOCALE_STRING/$LOCALE_STRING/g" /etc/locale.gen;
+localectl set-locale LANG="$LOCALE_STRING";
 
 echo "Setting hostname.";
 echo "$HOSTNAME" > /etc/hostname;
+
+echo "Creating hosts file";
+mv /chroot-files/hosts /etc/hosts;
+sed -i"" "s/HOSTNAME/$HOSTNAME/g" /etc/hosts;
 
 echo "Setting root's password.";
 echo "root:password" | chpasswd;
@@ -61,7 +66,7 @@ grub-mkconfig -o /boot/grub/grub.cfg;
 echo "Enabling Systemd Services.";
 systemctl enable $(cat /chroot-files/services | grep -v '^#');
 
-read -p "Perform additional VMWare setup? (y/n): " CONFIRM;
+read -p "Perform additional VMWare guest setup? (y/n): " CONFIRM;
 if [ "$CONFIRM" == "y" ]; then
     echo "Performing VMWare setup.";
     /chroot-files/vmware.sh;
