@@ -26,6 +26,7 @@ xorg-server
 slock
 compton
 mesa
+gnu-free-fonts
 
 # PulseAudio
 #pulseaudio
