@@ -22,11 +22,12 @@ function check-var() {
     fi;
 }
 
-while getopts "d:n:u:h" ARG; do
+while getopts "d:n:u:t:h" ARG; do
     case "$ARG" in
         d) DEVICE="$OPTARG";;
         n) HOSTNAME="$OPTARG";;
         u) USERNAME="$OPTARG";;
+        t) NETWORK_DEVICE="$OPTARG";;
         h) usage;;
         *) usage;;
     esac;
@@ -35,6 +36,7 @@ done;
 check-var "$DEVICE" "Device";
 check-var "$HOSTNAME" "Hostname";
 check-var "$USERNAME" "Username";
+check-var "$NETWORK_DEVICE" "NetworkDevice";
 
 echo "Ensuring $DEVICE does not have live mounts."
 if mount | grep "$DEVICE"; then
@@ -121,7 +123,8 @@ cp -r chroot-files "$ROOT_MOUNT";
 echo "Chrooting to $ROOT_MOUNT.";
 arch-chroot "$ROOT_MOUNT" /chroot-files/chroot.sh \
     -n "$HOSTNAME" \
-    -u "$USERNAME";
+    -u "$USERNAME" \
+    -t "$NETWORK_DEVICE";
 
 echo "Removing copy of chroot-files.";
 rm -r "$ROOT_MOUNT/chroot-files";
