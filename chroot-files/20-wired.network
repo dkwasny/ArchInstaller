@@ -1,0 +1,5 @@
+[Match]
+Name=NETWORK_DEVICE
+
+[Network]
+DHCP=yes
