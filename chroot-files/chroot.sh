@@ -7,7 +7,7 @@
 set -ex;
 
 function usage() {
-    echo "Usage: $0 -n <hostname> -u <username> -d <network-device>";
+    echo "Usage: $0 -n <hostname> -u <username> -t <network-device>";
     exit 0;
 }
 
@@ -18,11 +18,11 @@ function check-var() {
     fi;
 }
 
-while getopts "n:u:d:h" ARG; do
+while getopts "n:u:t:h" ARG; do
     case "$ARG" in
         n) HOSTNAME="$OPTARG";;
         u) USERNAME="$OPTARG";;
-        d) NETWORK_DEVICE="$OPTARG";;
+        t) NETWORK_DEVICE="$OPTARG";;
         h) usage;;
         *) usage;;
     esac;
