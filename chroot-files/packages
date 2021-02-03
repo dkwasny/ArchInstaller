@@ -4,10 +4,20 @@
 # System
 grub
 efibootmgr
-intel-ucode
-networkmanager
-firewalld
+#networkmanager
+#firewalld
 openssh
+
+# Microcode
+# Uncomment based on your CPU (or none if using a VM)
+#intel-ucode
+#amd-ucode
+
+# Video Driver
+# Uncomment based on your GPU (or none if using a VM)
+#xf86-video-amdgpu
+#xf86-video-intel
+#nvidia
 
 # X11
 lightdm
@@ -15,10 +25,11 @@ lightdm-gtk-greeter
 xorg-server
 slock
 compton
+mesa
 
 # PulseAudio
-pulseaudio
-pavucontrol
+#pulseaudio
+#pavucontrol
 
 # XFCE
 xfce4
@@ -26,25 +37,26 @@ xfce4-whiskermenu-plugin
 xfce4-notifyd
 arc-gtk-theme
 arc-icon-theme
-network-manager-applet
-gtk-engine-murrine
-xfce4-pulseaudio-plugin
+#network-manager-applet
+#gtk-engine-murrine
+#xfce4-pulseaudio-plugin
 
 # User
 git
 firefox
 vim
 keepassx2
-jre8-openjdk
+jre11-openjdk
 gradle
 npm
-docker
-docker-compose
-ansible
+python
+#docker
+#docker-compose
+#ansible
 valgrind
-libvirt
-virt-manager
-qemu
-dnsmasq
-tuxguitar
-fluidsynth
+#libvirt
+#virt-manager
+#qemu
+#dnsmasq
+#tuxguitar
+#fluidsynth
