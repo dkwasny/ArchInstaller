@@ -52,6 +52,7 @@ echo "root:password" | chpasswd;
 echo "Creating user: $USERNAME.";
 useradd -m "$USERNAME";
 echo "$USERNAME:password" | chpasswd;
+mkdir -m 700 /etc/sudoers.d;
 echo "$USERNAME ALL=(ALL) ALL" > /etc/sudoers.d/"$USERNAME";
 
 echo "Installing packages.";
