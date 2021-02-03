@@ -34,10 +34,10 @@ echo "Setting up timezone.";
 ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime;
 
 echo "Setting up locale.";
-LOCALE_STRING="en_US.UTF-8 UTF-8";
+LOCALE_STRING="en_US.UTF-8";
 sed -i"" "s/#$LOCALE_STRING/$LOCALE_STRING/g" /etc/locale.gen;
 locale-gen;
-localectl set-locale LANG="$LOCALE_STRING";
+echo "LANG=$LOCALE_STRING" > /etc/locale.conf;
 
 echo "Setting hostname.";
 echo "$HOSTNAME" > /etc/hostname;
