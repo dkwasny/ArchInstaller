@@ -30,8 +30,8 @@ mesa
 gnu-free-fonts
 
 # PulseAudio
-#pulseaudio
-#pavucontrol
+pulseaudio
+pavucontrol
 
 # XFCE
 xfce4
@@ -41,7 +41,7 @@ arc-gtk-theme
 arc-icon-theme
 #network-manager-applet
 #gtk-engine-murrine
-#xfce4-pulseaudio-plugin
+xfce4-pulseaudio-plugin
 
 # User
 git

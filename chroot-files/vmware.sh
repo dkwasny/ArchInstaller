@@ -17,3 +17,6 @@ pacman -S \
 echo "Enabling VMWare services.";
 systemctl enable vmtoolsd;
 #systemctl enable vmware-vmblock-fuse;
+
+echo "Disabling PC speaker";
+echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf;
